@@ -1,0 +1,68 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.imageWrapper {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 2rem;
+
+    img {
+        border-radius: 4px; // Slight softness if desired, or remove for sharp edges
+    }
+}
+
+.body {
+    text-align: left;
+    line-height: 2;
+    font-size: 0.95rem;
+    color: #444;
+
+    p {
+        margin-bottom: 2rem; // Default spacing for body text
+        letter-spacing: 0.05em;
+
+        // The first few lines in the original site are simpler.
+        // Line 1: Name (Bold, slightly larger)
+        // Line 2: Title
+        // Line 3: Location
+        // These often have tighter spacing than paragraphs.
+
+        &:first-child {
+            font-size: 1.2rem; // Slightly larger than base
+            font-weight: bold;
+            margin-bottom: 0.5rem; // Name is close to title
+        }
+
+        &:nth-child(2) {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        &:nth-child(3) {
+            margin-bottom: 3rem; // Space after the intro block before the main text
+        }
+
+        // Reset for valid paragraphs
+        &:nth-child(n+4) {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
