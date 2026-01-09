@@ -1,0 +1,87 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    input,
+    textarea {
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: #888;
+        }
+    }
+
+    textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+}
+
+.submitButton {
+    padding: 1rem 2rem;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+
+    &:hover {
+        background-color: #333;
+    }
+
+    &:disabled {
+        background-color: #aaa;
+        cursor: not-allowed;
+    }
+}
+
+.successMessage {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f0f9f0;
+    border-radius: 4px;
+    color: #2a7d2a;
+}
+
+.errorMessage {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fef0f0;
+    border-radius: 4px;
+    color: #c53030;
+}
