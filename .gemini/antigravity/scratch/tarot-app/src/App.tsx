@@ -12,7 +12,13 @@ function App() {
             padding: '2rem'
         }}>
             <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '3rem', textShadow: '0 0 10px var(--color-primary)', marginBottom: '0.5rem' }}>Tarot Mystique</h1>
+                <h1 style={{
+                    marginBottom: '2rem',
+                    fontSize: '2.5rem',
+                    color: '#1d1d1f'
+                }}>
+                    Tarot Mystique
+                </h1>
                 <p style={{ color: 'var(--color-text-muted)', fontStyle: 'italic' }}>Reveal your destiny</p>
             </header>
 

@@ -48,30 +48,32 @@ export const GameBoard: React.FC = () => {
                     <button
                         onClick={() => setGameMode('one')}
                         style={{
-                            padding: '10px 20px',
-                            background: gameMode === 'one' ? 'var(--color-primary)' : 'rgba(255,255,255,0.1)',
-                            color: 'white',
-                            border: '1px solid var(--color-primary)',
-                            borderRadius: '20px',
+                            padding: '10px 24px',
+                            background: gameMode === 'one' ? '#1d1d1f' : '#ffffff',
+                            color: gameMode === 'one' ? '#ffffff' : '#1d1d1f',
+                            border: '1px solid #d2d2d7',
+                            borderRadius: '980px',
                             cursor: 'pointer',
-                            transition: 'all 0.3s'
+                            transition: 'all 0.2s',
+                            fontWeight: 500
                         }}
                     >
-                        ワンオラクル (1枚)
+                        One Oracle (1枚)
                     </button>
                     <button
                         onClick={() => setGameMode('three')}
                         style={{
-                            padding: '10px 20px',
-                            background: gameMode === 'three' ? 'var(--color-primary)' : 'rgba(255,255,255,0.1)',
-                            color: 'white',
-                            border: '1px solid var(--color-primary)',
-                            borderRadius: '20px',
+                            padding: '10px 24px',
+                            background: gameMode === 'three' ? '#1d1d1f' : '#ffffff',
+                            color: gameMode === 'three' ? '#ffffff' : '#1d1d1f',
+                            border: '1px solid #d2d2d7',
+                            borderRadius: '980px',
                             cursor: 'pointer',
-                            transition: 'all 0.3s'
+                            transition: 'all 0.2s',
+                            fontWeight: 500
                         }}
                     >
-                        スリーカード (3枚)
+                        Three Spread (3枚)
                     </button>
                 </div>
             )}

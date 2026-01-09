@@ -53,6 +53,8 @@ h4 {
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--color-text-main);
+  text-shadow: none;
+  /* Explicitly remove shadow */
 }
 
 button {
