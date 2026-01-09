@@ -1,50 +1,91 @@
 :root {
-  /* Mystical Dark Theme */
-  --color-bg-deep: #0f0c1a; /* Deep purple/black */
-  --color-bg-card: #1a1625;
-  --color-primary: #9b59b6; /* Mystic Purple */
-  --color-secondary: #f1c40f; /* Gold */
-  --color-accent: #e74c3c;
-  --color-text-main: #ecf0f1;
-  --color-text-muted: #bdc3c7;
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  
-  --shadow-glow: 0 0 15px rgba(155, 89, 182, 0.3);
-  --shadow-card: 0 10px 20px rgba(0, 0, 0, 0.5);
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-  --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-serif: 'Cinzel', 'Playfair Display', serif; /* For titles */
-}
+  /* Color Palette - Light Theme (Mystical White/Gold) */
+  --color-bg-base: #fdfbf7;
+  /* Warm white */
+  --color-bg-gradient-start: #ffffff;
+  --color-bg-gradient-end: #f0f2f5;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --color-primary: #d4af37;
+  /* Gold */
+  --color-secondary: #2c3e50;
+  /* Dark Slate Blue (for text) */
+  --color-accent: #e67e22;
+  /* Soft Orange/Amber */
+
+  --color-text-main: #2c3e50;
+  --color-text-muted: #7f8c8d;
+  --color-text-light: #ecf0f1;
+
+  --color-card-back: #ffffff;
+  --color-card-border: #d4af37;
+
+  --color-glass-bg: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(212, 175, 55, 0.3);
+
+  --shadow-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+  --shadow-card: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: var(--font-main);
-  background-color: var(--color-bg-deep);
-  color: var(--color-text-main);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 50% 0%, #2c2045 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, #1f1a30 0%, transparent 40%);
+  background: linear-gradient(135deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+  color: var(--color-text-main);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  color: var(--color-secondary);
-  font-weight: 400;
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 button {
-  cursor: pointer;
-  border: none;
-  background: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
   font-family: inherit;
+  background-color: var(--color-glass-bg);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--color-primary);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b3922d;
 }
