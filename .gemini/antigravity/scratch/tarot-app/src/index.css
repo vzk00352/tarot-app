@@ -1,34 +1,28 @@
 :root {
-  font-family: 'Georgia', 'Times New Roman', 'Hiragino Mincho ProN', serif;
-  line-height: 1.6;
-  font-weight: 500;
+  /* System Fonts - Clean and Legible */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.5;
+  font-weight: 400;
 
-  /* Color Palette - Antique Parchment Theme */
-  --color-bg-base: #f3e5d0;
-  /* Parchment Beige */
-  --color-bg-gradient-start: #f3e5d0;
-  --color-bg-gradient-end: #e6d0b3;
+  /* Color Palette - Simple Neutral */
+  --color-bg-base: #f5f5f7;
+  /* Light Gray (Apple-style background) */
 
-  --color-text-main: #3e2723;
-  /* Dark Brown Ink */
-  --color-text-muted: #5d4037;
-  /* Lighter Brown */
+  --color-text-main: #1d1d1f;
+  /* Almost Black */
+  --color-text-muted: #86868b;
+  /* Gray Text */
 
-  --color-primary: #8d6e63;
-  /* Warm Brown Accent */
-  --color-secondary: #3e2723;
-  /* Deep Brown Accent */
-  --color-accent: #d4af37;
-  /* Aged Gold */
+  --color-primary: #0071e3;
+  /* Standard Link Blue (for primary actions if needed, or keeping it neutral) */
+  --color-accent: #2c3e50;
+  /* Neutral Dark Accent */
 
-  --color-card-bg: #fff8e1;
-  /* Cream */
-  --color-border: #bcaaa4;
-  /* Soft Brown Border */
+  --color-card-bg: #ffffff;
+  --color-border: #d2d2d7;
 
-  --shadow-sm: 0 2px 4px rgba(62, 39, 35, 0.1);
-  --shadow-md: 0 4px 12px rgba(62, 39, 35, 0.15);
-  --shadow-paper: 2px 4px 10px rgba(0, 0, 0, 0.1), 0 0 40px rgba(255, 255, 255, 0.2) inset;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -42,9 +36,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: radial-gradient(circle at center, var(--color-bg-gradient-start), var(--color-bg-gradient-end));
+  background-color: var(--color-bg-base);
   color: var(--color-text-main);
-  /* slight noise texture if possible, but solid color is cleaner for now */
 }
 
 #root {
@@ -57,67 +50,60 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Zapfino', 'Apple Chancery', 'Georgia', serif;
-  letter-spacing: 0.05em;
-  color: #271c19;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-text-main);
 }
 
 button {
-  border-radius: 4px;
-  /* Less rounded, more paper-like */
-  border: 1px solid var(--color-text-main);
-  padding: 0.8em 1.6em;
+  border-radius: 980px;
+  /* Pill shape */
+  border: none;
+  padding: 12px 24px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   font-family: inherit;
-  background-color: #fff8e1;
+  background-color: #ffffff;
   color: var(--color-text-main);
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 2px 2px 0px rgba(62, 39, 35, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
 }
 
 button:hover {
+  background-color: #f5f5f7;
   transform: translateY(-1px);
-  box-shadow: 4px 4px 0px rgba(62, 39, 35, 0.2);
-  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Scrollbar styling */
+button:active {
+  transform: translateY(0);
+  background-color: #e5e5e5;
+}
+
+/* Scrollbar styling - Minimal */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e6d0b3;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8d6e63;
-  border-radius: 5px;
-  border: 2px solid #e6d0b3;
+  background: #c1c1c1;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6d4c41;
+  background: #a8a8a8;
 }
 
-/* Paper panel class */
-.paper-panel {
-  background: #fff8e1;
-  border: 1px solid #d7ccc8;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.paper-panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  pointer-events: none;
+/* Utilities */
+.simple-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 24px;
 }
