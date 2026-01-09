@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/gameboard.tsx","./src/components/tarotcard.tsx","./src/data/tarotdata.ts","./src/hooks/usetarot.ts","./src/types/index.ts"],"version":"5.9.3"}
