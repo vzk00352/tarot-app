@@ -90,12 +90,18 @@ export const GameBoard: React.FC = () => {
                     drawnCards.map((result, index) => (
                         <div key={result.card.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                             {gameMode === 'three' && (
-                                <h4 style={{ color: 'var(--color-secondary)', marginBottom: '0.8rem', fontWeight: 'bold' }}>{getPositionLabel(index)}</h4>
+                                <h4 style={{
+                                    color: 'var(--color-text-main)',
+                                    marginBottom: '0.8rem',
+                                    fontWeight: 'bold',
+                                    borderBottom: '1px solid var(--color-primary)',
+                                    paddingBottom: '2px'
+                                }}>{getPositionLabel(index)}</h4>
                             )}
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                                initial={{ opacity: 0, scale: 0.9, y: 15 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.2 }}
                             >
                                 <TarotCard
                                     card={result.card}
@@ -111,29 +117,29 @@ export const GameBoard: React.FC = () => {
                         style={{
                             width: '200px',
                             height: '340px',
-                            borderRadius: '12px',
-                            border: '2px dashed #d4af37',
+                            borderRadius: '8px',
+                            border: '2px dashed var(--color-primary)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             cursor: 'pointer',
-                            color: 'var(--color-primary)',
-                            background: 'rgba(212, 175, 55, 0.05)',
+                            color: 'var(--color-text-muted)',
+                            background: 'rgba(255, 255, 255, 0.2)',
                             transition: 'all 0.3s ease',
-                            boxShadow: 'var(--shadow-card)'
+                            boxShadow: 'inset 0 0 20px rgba(141, 110, 99, 0.1)'
                         }}
                     >
                         {isThinking ? (
                             <motion.div
                                 animate={{ rotate: 360 }}
-                                transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
+                                transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
                             >
-                                <span style={{ fontSize: '2rem', color: 'var(--color-primary)' }}>✦</span>
+                                <span style={{ fontSize: '3rem', opacity: 0.6 }}>🔮</span>
                             </motion.div>
                         ) : (
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                                <span style={{ fontSize: '2rem', color: 'var(--color-primary)' }}>✦</span>
-                                <span style={{ fontWeight: 500 }}>Tap to Draw</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+                                <span style={{ fontSize: '3rem', opacity: 0.8 }}>🃏</span>
+                                <span style={{ fontFamily: 'serif', fontStyle: 'italic', fontSize: '1.2rem' }}>Draw Card</span>
                             </div>
                         )}
                     </div>
@@ -141,11 +147,11 @@ export const GameBoard: React.FC = () => {
             </div>
 
             {drawnCards.length > 0 && (
-                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem', paddingBottom: '4rem' }}>
                     <div style={{
                         display: 'flex',
                         flexWrap: 'wrap',
-                        gap: '1rem',
+                        gap: '2rem',
                         justifyContent: 'center',
                         width: '100%'
                     }}>
@@ -154,41 +160,53 @@ export const GameBoard: React.FC = () => {
                                 key={`${result.card.id}-desc`}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 + (index * 0.2) }}
+                                transition={{ delay: 0.4 + (index * 0.15) }}
+                                className="paper-panel"
                                 style={{
-                                    background: 'rgba(255, 255, 255, 0.9)',
-                                    padding: '1.5rem',
-                                    borderRadius: '16px',
-                                    border: '1px solid var(--color-glass-border)',
-                                    maxWidth: '350px',
+                                    padding: '2rem',
+                                    maxWidth: '320px',
                                     textAlign: 'center',
-                                    flex: '1 1 300px',
-                                    boxShadow: '0 8px 32px rgba(212, 175, 55, 0.1)'
+                                    flex: '1 1 300px'
                                 }}
                             >
                                 {gameMode === 'three' && (
-                                    <div style={{ color: 'var(--color-accent)', fontSize: '0.8rem', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>
-                                        {getPositionLabel(index)}
+                                    <div style={{ color: 'var(--color-primary)', fontSize: '0.9rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>
+                                        — {getPositionLabel(index)} —
                                     </div>
                                 )}
-                                <h3 style={{ color: 'var(--color-secondary)', fontSize: '1.4rem', marginBottom: '0.5rem' }}>
+                                <h3 style={{
+                                    color: 'var(--color-text-main)',
+                                    fontSize: '1.6rem',
+                                    marginBottom: '0.8rem',
+                                    fontFamily: 'serif'
+                                }}>
                                     {result.card.nameJa}
-                                    <span style={{ fontSize: '0.9rem', marginLeft: '10px', color: 'var(--color-text-muted)', fontWeight: 'normal' }}>
-                                        {result.isReversed ? '（逆位置）' : '（正位置）'}
+                                    <span style={{ fontSize: '1rem', marginLeft: '10px', color: 'var(--color-text-muted)', fontWeight: 'normal' }}>
+                                        {result.isReversed ? '(逆位置)' : '(正位置)'}
                                     </span>
                                 </h3>
-                                <p style={{ fontStyle: 'italic', marginBottom: '1rem', color: 'var(--color-text-main)', lineHeight: '1.6' }}>
+                                <p style={{
+                                    fontStyle: 'italic',
+                                    marginBottom: '1.5rem',
+                                    color: 'var(--color-text-main)',
+                                    lineHeight: '1.8',
+                                    fontSize: '1.05rem',
+                                    borderTop: '1px solid #d7ccc8',
+                                    borderBottom: '1px solid #d7ccc8',
+                                    padding: '1rem 0'
+                                }}>
                                     "{result.isReversed ? result.card.meaningReversed : result.card.meaningUpright}"
                                 </p>
                                 <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
                                     {result.card.keywords.map(k => (
                                         <span key={k} style={{
-                                            fontSize: '0.75rem',
-                                            padding: '4px 10px',
-                                            borderRadius: '20px',
-                                            background: 'rgba(212, 175, 55, 0.1)',
-                                            color: '#8e7018',
-                                            fontWeight: 500
+                                            fontSize: '0.85rem',
+                                            padding: '4px 12px',
+                                            borderRadius: '2px',
+                                            background: '#efebe9',
+                                            border: '1px solid #d7ccc8',
+                                            color: '#5d4037',
+                                            fontFamily: 'sans-serif'
                                         }}>
                                             {k}
                                         </span>
@@ -201,20 +219,18 @@ export const GameBoard: React.FC = () => {
                     <button
                         onClick={handleReset}
                         style={{
-                            marginTop: '1rem',
-                            padding: '12px 32px',
-                            background: 'var(--color-primary)',
-                            color: 'white',
-                            borderRadius: '30px',
-                            fontWeight: 'bold',
-                            boxShadow: '0 4px 15px rgba(212, 175, 55, 0.4)',
-                            transition: 'all 0.2s',
-                            cursor: 'pointer',
-                            border: 'none',
-                            fontSize: '1rem'
+                            padding: '12px 40px',
+                            background: '#3e2723',
+                            color: '#fff8e1',
+                            borderRadius: '4px',
+                            fontWeight: 'normal',
+                            fontFamily: 'serif',
+                            fontSize: '1.1rem',
+                            letterSpacing: '0.1em',
+                            border: '1px solid #5d4037'
                         }}
                     >
-                        新しい占いを始める
+                        占いをやり直す
                     </button>
                 </div>
             )}

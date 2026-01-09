@@ -27,45 +27,42 @@ export const TarotCard: React.FC<TarotCardProps> = ({ card, isReversed, isReveal
                     cursor: isRevealed ? 'default' : 'pointer',
                 }}
             >
-                {/* Card Back */}
+                {/* Card Back - Antique Parchment */}
                 <div style={{
                     position: 'absolute',
                     width: '100%',
                     height: '100%',
                     backfaceVisibility: 'hidden',
-                    backgroundColor: '#ffffff',
-                    borderRadius: '12px',
-                    border: '2px solid #d4af37',
+                    backgroundColor: '#fff8e1', /* Cream paper */
+                    borderRadius: '8px',
+                    border: '4px double #8d6e63', /* Double border like a book */
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: '0 4px 15px rgba(212, 175, 55, 0.15)',
-                    background: 'linear-gradient(135deg, #fffcf5 0%, #ffffff 100%)',
+                    boxShadow: '2px 4px 10px rgba(0,0,0,0.2)',
+                    background: 'radial-gradient(circle, #fff8e1 20%, #ffecb3 100%)',
                 }}>
                     <div style={{
                         width: '85%',
                         height: '92%',
-                        border: '1px solid rgba(212, 175, 55, 0.3)',
-                        borderRadius: '8px',
+                        border: '1px solid #d4af37',
+                        borderRadius: '4px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        backgroundImage: 'radial-gradient(circle, #d4af37 1px, transparent 1px)',
-                        backgroundSize: '20px 20px',
                         opacity: 0.8
                     }}>
                         <div style={{
                             width: '60px',
                             height: '60px',
-                            background: '#fff',
                             borderRadius: '50%',
+                            border: '2px solid #8d6e63',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            border: '1px solid #d4af37',
-                            boxShadow: '0 0 10px rgba(212,175,55,0.2)'
+                            background: '#efebe9'
                         }}>
-                            <span style={{ fontSize: '2rem', color: '#d4af37' }}>✦</span>
+                            <span style={{ fontSize: '2rem', color: '#5d4037' }}>⚜️</span>
                         </div>
                     </div>
                 </div>
